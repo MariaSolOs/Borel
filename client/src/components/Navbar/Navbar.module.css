@@ -1,0 +1,30 @@
+.Navbar {
+    width: 90%;
+    margin: 5% auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.NavItem {
+    font-size: 1.5rem;
+    color: #553D70;
+    text-decoration: none;
+}
+.NavItem:active, .NavItem.active {
+    font-weight: bold;
+}
+
+@media (min-width: 600px) and (max-width: 870px) {
+    .NavItem {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 599.98px) {
+    .NavItem {
+        font-size: 1rem;
+    }
+}

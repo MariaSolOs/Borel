@@ -1,0 +1,38 @@
+.Dropzone {
+    width: 70%;
+    border-radius: 1rem;
+    background-color: rgba(175, 156, 195, 0.2);
+    border: none;
+    -webkit-box-shadow: 2px 3px 4px -2px rgba(0,0,0,0.45);
+    -moz-box-shadow: 2px 3px 4px -2px rgba(0,0,0,0.45);
+    box-shadow: 2px 3px 4px -2px rgba(0,0,0,0.45);  
+}
+
+.InputLabel, .InputLabelWithFiles {
+    color: #553D70;
+    font-family: inherit;
+    text-decoration: underline;
+}
+.InputLabelWithFiles {
+    background-color: transparent;
+    align-self: center;
+    font-size: 1rem;
+}
+
+.PreviewContainer {
+    padding: 10% 3%;
+}
+
+.PreviewImage {
+    max-height: 150px;
+    max-width: 200px;
+}
+
+.SubmitButton {
+    background-color: rgba(175, 156, 195, 0.4);
+    font-family: inherit;
+    border-radius: 1rem;
+    color: #553D70;
+    padding: 5% 40%;
+}
+

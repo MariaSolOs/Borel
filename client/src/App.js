@@ -1,39 +1,26 @@
 import React from 'react';
-import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
 
-import logo from './logo.svg';
-
-import './App.css';
+import Layout from './components/Layout';
+import UploadNotes from './components/UploadNotes/UploadNotes';
+import About from './components/About/About';
+import Gallery from './components/Gallery/Gallery.js'
+import Home from './components/Home/Home';
 
 class App extends React.Component {
-    state = {
-        data: null
-    }
-    
-    componentDidMount() {
-        axios.get('http://localhost:5000/')
-            .then(res => {
-                this.setState({
-                    data: res.data.msg
-                })
-            }).catch(err => {
-                console.log('Error from Express:', err);
-            }
-        );
-    }
-
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <p>{this.state.data}</p>
-                </header>
-            </div>
-          );
+            <React.Fragment>
+                <Layout>
+                    <Switch>
+                        <Route path="/upload" component={UploadNotes} />
+                        <Route path="/about" component={About} />
+                        <Route path="/gallery" component={Gallery} />
+                        <Route path="/" component={Home} />
+                    </Switch>
+                </Layout>
+            </React.Fragment>
+        );
     }
     
 }
