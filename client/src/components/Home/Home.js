@@ -7,8 +7,8 @@ import Container from '@material-ui/core/Container';
 const styles = {
     Container: {
         width: '80%',
-        margin: '30% auto',
-        textAlign: 'center'
+        margin: '10% auto',
+        textAlign: 'center',
     },
     Header: {
         width: '60%',

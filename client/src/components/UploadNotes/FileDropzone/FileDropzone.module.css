@@ -12,6 +12,7 @@
     color: #553D70;
     font-family: inherit;
     text-decoration: underline;
+    margin: 0;
 }
 .InputLabelWithFiles {
     background-color: transparent;
@@ -20,12 +21,11 @@
 }
 
 .PreviewContainer {
-    padding: 10% 3%;
+    padding: 10% 5%;
 }
-
 .PreviewImage {
-    max-height: 150px;
-    max-width: 200px;
+    max-height: 100px;
+    max-width: 150px;
 }
 
 .SubmitButton {
@@ -33,6 +33,11 @@
     font-family: inherit;
     border-radius: 1rem;
     color: #553D70;
-    padding: 5% 40%;
+    padding: 5% 20%;
+    margin: 0 auto;
+    width: 100%;
+}
+.SubmitButtonContainer {
+    width: 30%;
 }
 

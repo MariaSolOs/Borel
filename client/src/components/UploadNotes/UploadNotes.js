@@ -1,4 +1,5 @@
 import React from 'react';
+// import axios from '../../config/axios';
 
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
@@ -15,6 +16,10 @@ const styles = {
 }
 
 class UploadNotes extends React.Component {
+    state = {
+        image: null
+    }
+
     render() {
         return (
             <Container style={styles.Container}>
@@ -34,6 +39,7 @@ class UploadNotes extends React.Component {
                   helperText="We recommend using your McGill email"
                 />
                 <FileDropzone />
+                {/* <img src="http://localhost:5000/notes/nav_logo.png" /> */}
             </Container>
         )
     }
