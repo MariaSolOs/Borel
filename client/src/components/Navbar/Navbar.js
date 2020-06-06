@@ -1,21 +1,21 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-import styles from './Navbar.module.css';
+import classes from './Navbar.module.css';
 
 const NavItem = (props) => (
     <li>
         <NavLink 
           exact to={props.link} 
-          className={styles.NavItem}
-          activeClassName={styles.active}>
+          className={classes.NavItem}
+          activeClassName={classes.active}>
             {props.children}
         </NavLink>
     </li>
-)
+);
 
 const Navbar = () => (
-    <ul className={styles.Navbar}>
+    <ul className={classes.Navbar}>
         <NavItem link='/'>
             Home
         </NavItem>
@@ -26,6 +26,6 @@ const Navbar = () => (
             About
         </NavItem>
     </ul>
-)
+);
 
 export default Navbar;

@@ -1,0 +1,17 @@
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    min-width: 300px;
+    margin: 5% auto;
+}
+
+.TextField {
+    margin: 3% 0 !important;
+}
+
+.SubmitButton {
+    margin: 0 auto !important;
+    font-weight: 600 !important;
+}
