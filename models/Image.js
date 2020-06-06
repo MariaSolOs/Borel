@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-const ImageSchema = new mongoose.Schema({
-    URL: String
+const NotePostSchema = new mongoose.Schema({
+    creatorEmail: {type: String, required},
+    courseCode: {type: String, required},
+    courseNumber: {type: String, required},
+    images: [String]
 });
-module.exports = mongoose.model('Image', ImageSchema);
+module.exports = mongoose.model('NotePost', NotePostSchema);
