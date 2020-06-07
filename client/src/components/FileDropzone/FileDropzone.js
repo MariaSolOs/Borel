@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import Dropzone from 'react-dropzone-uploader';
 
-import {DropzoneContext} from '../../../context/dropzone-context';
+import {DropzoneContext} from '../../context/dropzone-context';
 
 //Styles
 import 'react-dropzone-uploader/dist/styles.css';
@@ -38,7 +38,7 @@ const FileDropzone = () => {
                 maxFiles={3}
                 inputContent={(files, extra) => 
                     (extra.reject ? 'Images only!' : 
-                                    'Click me to add your notes ;)')}
+                                    'Show us your pretty notes ;)')}
                 inputWithFilesContent={files => `You can add ${3 - files.length} more pic(s)`}
                 addClassNames={{
                     dropzone: classes.Dropzone,

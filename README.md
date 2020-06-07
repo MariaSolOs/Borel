@@ -6,9 +6,7 @@ A note-taking marketplace
 * Due end of June
 1. Basic pages
 2. Main gallery ready
-3. Router transition (?)
 
 ## Version 2
 * Due sometime during August
 1. Add user accounts
-2. Add Node.js

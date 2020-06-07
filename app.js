@@ -7,7 +7,7 @@ const express = require('express'),
 require('dotenv').config();
 
 //Models
-const Image = require('./models/Image');
+const NotePost = require('./models/NotePost');
 
 //Setting environment variables
 const mongoUrl = process.env.MONGODB_URI,
@@ -24,13 +24,23 @@ app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.post('/notes/images', (req, res) => {
-    Image.create({URL: req.body.url})
-    .catch(err => console.log(err));
+app.post('/notes', (req, res) => {
+    const newNote = new NotePost({
+        creatorEmail: req.body.email,
+        courseCode: req.body.courseCode,
+        courseNumber: req.body.courseNumber,
+        images: req.body.URLs
+    });
+    newNote.save()
+    .then(note => res.status(200).send('Note created'))
+    .catch(err => res.status(404).send('Mongoose error'));
 });
 
-app.get('/notes/:imgId', (req, res) => {
-    
+app.get('/notes', (req, res) => {
+    NotePost.find({courseCode: req.query.courseCode,
+    courseNumber: req.query.courseNumber})
+    .then(notes => res.json(notes))
+    .catch(err => res.status(404).send('Mongoose error'))
 });
 
 app.listen(PORT, () => {
