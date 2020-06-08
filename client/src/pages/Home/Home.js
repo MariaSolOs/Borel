@@ -26,7 +26,7 @@ const Home = () => {
 
     //Find saved institutions in database when mounting
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_SERVER_BASEURL}/institutions`)
+        axios.get('/institutions')
         .then(res => {
             setStored(res.data);
         })

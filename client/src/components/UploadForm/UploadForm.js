@@ -99,8 +99,7 @@ const UploadForm = () => {
         }
     
         const handleUploadToServer = async (URLs, course) => {
-            return axios.post(
-                `${process.env.REACT_APP_SERVER_BASEURL}/notes`, {
+            return axios.post('/notes', {
                     inst, course, URLs, email
                 }
             );

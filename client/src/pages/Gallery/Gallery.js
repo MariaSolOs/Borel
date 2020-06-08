@@ -32,7 +32,7 @@ const Gallery = (props) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_SERVER_BASEURL}/notes`, {
+        axios.get('/notes', {
             params: {
                 inst: props.location.state.inst, 
                 course: props.location.state.course
