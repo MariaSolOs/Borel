@@ -2,45 +2,66 @@
 const express = require('express'),
       app = express(),
       cors = require('cors'),
-      mongoose = require('mongoose'),
       bodyParser = require('body-parser');
 require('dotenv').config();
 
 //Models
+const Institution = require('./models/Institution');
 const NotePost = require('./models/NotePost');
 
 //Setting environment variables
-const mongoUrl = process.env.MONGODB_URI,
-      PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
       
-//Mongoose setup
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
-mongoose.connect(mongoUrl);
+//Mongoose setup 
+require('./config/mongoose');
 
 app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.post('/notes', (req, res) => {
+    //Create note post
     const newNote = new NotePost({
-        creatorEmail: req.body.email,
-        courseCode: req.body.courseCode,
-        courseNumber: req.body.courseNumber,
-        images: req.body.URLs
+        institution: req.body.inst,
+        course: req.body.course,
+        images: req.body.URLs,
+        creatorEmail: req.body.email
     });
     newNote.save()
-    .then(note => res.status(200).send('Note created'))
-    .catch(err => res.status(404).send('Mongoose error'));
+    .then(note => {
+        //Save institution and course if needed
+        Institution.findOne({name: req.body.inst})
+        .then(inst => {
+            if(!inst) {
+                const newInst = new Institution({
+                    name: req.body.inst,
+                    courses: [req.body.course]
+                });
+                newInst.save();
+            }
+            else if(!inst.courses.includes(req.body.course)) {
+                inst.courses.push(req.body.course);
+                inst.save();
+            }
+            res.status(200).send('Note created');
+        }
+    )})
+    .catch(err => res.status(404).send('Mongoose error: ', err));
+});
+
+app.get('/institutions', (req, res) => {
+    Institution.find({})
+    .then(institutions => res.json(institutions))
+    .catch(err => res.status(404).send('Mongoose error: ', err))
 });
 
 app.get('/notes', (req, res) => {
-    NotePost.find({courseCode: req.query.courseCode,
-    courseNumber: req.query.courseNumber})
+    NotePost.find({
+        institution: req.query.inst, 
+        course: req.query.course
+    })
     .then(notes => res.json(notes))
-    .catch(err => res.status(404).send('Mongoose error'))
+    .catch(err => res.status(404).send('Mongoose error: ', err))
 });
 
 app.listen(PORT, () => {

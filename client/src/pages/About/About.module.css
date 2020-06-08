@@ -1,0 +1,11 @@
+.Container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.Bio {
+    font-size: 2rem;
+}
+.Bio span {
+    font-family: 'Galada', cursive;
+}
