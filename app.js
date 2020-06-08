@@ -2,7 +2,8 @@
 const express = require('express'),
       app = express(),
       cors = require('cors'),
-      bodyParser = require('body-parser');
+      bodyParser = require('body-parser'),
+      path = require('path');
 require('dotenv').config();
 
 //Models
@@ -18,6 +19,7 @@ require('./config/mongoose');
 app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.post('/notes', (req, res) => {
     //Create note post
@@ -62,6 +64,10 @@ app.get('/notes', (req, res) => {
     })
     .then(notes => res.json(notes))
     .catch(err => res.status(404).send('Mongoose error: ', err))
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
