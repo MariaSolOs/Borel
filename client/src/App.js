@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
-import Layout from './components/Layout';
+import Layout from './components/Layout/Layout';
 import UploadNotes from './pages/UploadNotes/UploadNotes';
 import Gallery from './pages/Gallery/Gallery';
 import About from './pages/About/About';

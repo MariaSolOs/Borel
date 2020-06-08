@@ -20,6 +20,7 @@ const Gallery = (props) => {
         data.forEach(entry => {
             if(!emails.includes(entry.email)) {
                 emails.push(entry.email);
+                //TODO: Add dummy image if no images
                 filtered.push({
                     image: entry.images[0],
                     id: entry._id,
@@ -37,7 +38,6 @@ const Gallery = (props) => {
                 inst: props.location.state.inst, 
                 course: props.location.state.course
             }}).then(res => {
-                console.log(res.data);
             if(res.data.length > 0) { 
                 setPosts(filterPosts(res.data));
             }

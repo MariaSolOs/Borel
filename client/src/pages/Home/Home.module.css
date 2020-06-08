@@ -1,7 +1,7 @@
 .Container {
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
-    max-width: 70%;
+    width: 70%;
 }
 @media (max-width: 860px) {
     .Container { margin-top: 5%; }
@@ -18,8 +18,14 @@
 }
 
 .HeaderImg {
-    width: 60%;
+    width: 50%;
     min-width: 220px;
+}
+
+.Searchbar {
+    width: 80%;
+    min-width: 300px;
+    margin: 0 auto;
 }
 
 .SearchButton {

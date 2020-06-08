@@ -63,6 +63,7 @@ const Home = () => {
                 <Container classes={{root: classes.Container}}>
                     <img src={BorelImg} alt="logo" className={classes.HeaderImg}/>
                     <Autocomplete
+                      classes={{root: classes.Searchbar}}
                       disableClearable
                       noOptionsText='Nothing found 😰'
                       options={stored.map(entry => entry.name)}
@@ -76,6 +77,7 @@ const Home = () => {
                       )}
                       onHighlightChange={handleSelectedInst} />
                     <Autocomplete
+                      classes={{root: classes.Searchbar}}
                       disabled={!courseSearch}
                       disableClearable
                       noOptionsText='Nothing found 😰'

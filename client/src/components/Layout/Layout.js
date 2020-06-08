@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Navbar from './Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
+
+import classes from './Layout.module.css';
 
 const Layout = (props) => {
     return (
@@ -8,7 +10,7 @@ const Layout = (props) => {
             <nav>
                 <Navbar />
             </nav>
-            <main>
+            <main className={classes.Main}>
                 {props.children}
             </main>
         </React.Fragment>
