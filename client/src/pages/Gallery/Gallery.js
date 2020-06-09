@@ -8,6 +8,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import Container from '@material-ui/core/Container';
 import GalleryItem from './GalleryItem';
 
+//Styles
+import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
 import classes from './Gallery.module.css';
 
 const Gallery = (props) => {
@@ -50,8 +52,15 @@ const Gallery = (props) => {
     }
 
     //Create gridlist
-    const createGridList = () => 
-        (<GridList cellHeight={320} cols={3} spacing={40}>
+    const createGridList = () => {
+        //For creating a dynamic gridlist:
+        const getGridListCols = () => {
+            if(isWidthUp('lg', props.width)) { return 3; }
+            if (isWidthUp('md', props.width)) { return 2; }
+            else { return 1; }
+          }
+
+          return(<GridList cellHeight={320} cols={getGridListCols()} spacing={40}>
             {posts.map((post) => (
                 <GridListTile key={post.id}>
                     <GalleryItem 
@@ -61,7 +70,8 @@ const Gallery = (props) => {
                       handlePostClick={() => handlePostClick(post.email)}/>
                 </GridListTile>
             ))}
-        </GridList>)
+        </GridList>);
+    } 
 
     return(
         <Slide in={true} mountOnEnter unmountOnExit direction="up" timeout={500}>
@@ -73,4 +83,4 @@ const Gallery = (props) => {
     )
 }
 
-export default Gallery;
+export default withWidth()(Gallery);

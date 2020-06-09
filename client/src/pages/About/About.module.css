@@ -9,3 +9,8 @@
 .Bio span {
     font-family: 'Galada', cursive;
 }
+.Bio a, .Bio a:visited {
+    font-family: 'Galada', cursive;
+    color: #7300E6;
+    text-decoration: none;
+}
