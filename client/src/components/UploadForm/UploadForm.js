@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import PublishRoundedIcon from '@material-ui/icons/PublishRounded';
 import FileDropzone from '../FileDropzone/FileDropzone';
+import Spinner from '../Spinner/Spinner';
 
 //Styles
 import classes from './UploadForm.module.css';
@@ -15,6 +16,7 @@ import classes from './UploadForm.module.css';
 const UploadForm = () => {
     const imgsInDropzone = useContext(DropzoneContext).submittedImgs;
     const [submitStatus, setSubmitStatus] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     //Use hook to set double binding and form controls
     const {value: inst, bind: bindInst, reset: resetInst, 
@@ -106,8 +108,8 @@ const UploadForm = () => {
         }
 
         event.preventDefault();
-
         if(!validateForm()) { return; }
+        setLoading(true);
 
         //TODO: Add popup when no images
         //TODO: Remind user to submit Dropzone
@@ -135,6 +137,7 @@ const UploadForm = () => {
     return(
         <form id="uploadForm" className={classes.FormContainer}>
             {submitStatus? <h2>{submitStatus}</h2> : 
+            loading? <Spinner /> :
                 <React.Fragment>
                     {form}
                     <FileDropzone />
