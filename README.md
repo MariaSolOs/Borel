@@ -1,12 +1,5 @@
 # Borel
 A note-taking marketplace
 
-## The plans
-### Version 1
-* June 8, 2020: Released!
-
-### Version 2
-* Due sometime during August
-1. Add user accounts
-2. Add Stripe
-3. Create pages for each notepost
+# The goal
+Often I see students on Facebook trying to find the notes for the courses they need. My goal with Borel is to provide a simple platform where anyone can quickly find the notes they're looking for.
