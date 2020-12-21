@@ -11,7 +11,7 @@ import classes from './About.module.css';
 const About = (props) => (
     <Slide in={true} mountOnEnter unmountOnExit direction="right" timeout={500}>
         <Container classes={{root: classes.Container}}>
-            <p className={classes.Bio}>Hi! I am <a href="https://mariasolos.github.io/MariaSolano/">
+            <p className={classes.Bio}>Hi! I am <a href="https://mariasolos.github.io/me/">
             Maria</a> and I am just a nerdy girl.<br />My goal with <span>Borel</span> is
             to create a simple marketplace for university notetakers.<br />
             <a href="mailto:majosolano99@gmail.com">Contact me</a> if you encounter
