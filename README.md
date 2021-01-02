@@ -1,6 +1,6 @@
 # Borel
 [Borel](https://borel.herokuapp.com/) is a simple website where anyone can easily upload and find lecture notes for the courses they need. 
-<img src="preview/uploading.gif" width="300"/>
+<img src="preview/uploading.gif" width="600"/>
 
 ## Built with
 * *MERN* (MongoDB, Express, React and NodeJS) stack.
